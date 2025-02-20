@@ -67,6 +67,40 @@
   }
 }
 
+/* Code block styles */
+.prose pre {
+  @apply overflow-x-auto rounded-lg border bg-muted p-4;
+}
+
+.prose pre code {
+  @apply grid bg-transparent p-0;
+  counter-reset: line;
+}
+
+.prose pre code .line {
+  @apply border-l-2 border-l-transparent px-4;
+}
+
+.prose pre code .line.line--highlighted {
+  @apply border-l-primary bg-muted/50;
+}
+
+.prose pre code .word--highlighted {
+  @apply rounded-md bg-muted px-1 py-0.5;
+}
+
+.prose code:not(pre code) {
+  @apply rounded-md bg-muted px-1.5 py-0.5;
+}
+
+.prose .mdx > *:first-child {
+  @apply mt-0;
+}
+
+.prose .mdx > *:last-child {
+  @apply mb-0;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

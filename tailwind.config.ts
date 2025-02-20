@@ -50,28 +50,45 @@ const config = {
   						marginBottom: '0.5em'
   					},
   					pre: {
-  						backgroundColor: 'hsl(var(--muted))',
+  						backgroundColor: 'transparent',
   						borderRadius: '0.5rem',
-  						padding: '1rem',
+  						padding: '0',
   						marginTop: '1em',
-  						marginBottom: '1em'
+  						marginBottom: '1em',
+  						color: 'inherit',
+  						'> code': {
+  							backgroundColor: 'transparent',
+  							borderRadius: 0,
+  							padding: 0,
+  							color: 'inherit',
+  							fontSize: '0.875em',
+  							'&::before': {
+  								content: 'none'
+  							},
+  							'&::after': {
+  								content: 'none'
+  							}
+  						}
   					},
   					code: {
   						backgroundColor: 'hsl(var(--muted))',
   						borderRadius: '0.25rem',
   						padding: '0.2em 0.4em',
-  						fontSize: '0.9em'
-  					},
-  					'code::before': {
-  						content: '""'
-  					},
-  					'code::after': {
-  						content: '""'
+  						fontSize: '0.875em',
+  						fontWeight: '400',
+  						'&::before': {
+  							content: '""'
+  						},
+  						'&::after': {
+  							content: '""'
+  						}
   					},
   					'pre code': {
   						backgroundColor: 'transparent',
   						borderRadius: 0,
-  						padding: 0
+  						padding: 0,
+  						fontSize: 'inherit',
+  						fontWeight: 'inherit'
   					}
   				}
   			}

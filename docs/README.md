@@ -7,6 +7,8 @@ description: Welcome to the SpaceJam Network documentation. Learn how to build a
 
 SpaceJam Network is the unlimited rust implementation of the JAM protocol.
 
+hello, world
+
 ## What is SpaceJam?
 
 SpaceJam is a decentralized network protocol implemented in Rust, designed to provide unlimited scalability and interoperability for blockchain applications.

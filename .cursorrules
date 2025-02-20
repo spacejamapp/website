@@ -1,3 +1,4 @@
 always use shadcn/ui for components
 always consider dark/light theme adaption on writing styles
+always use yarn as the package manager
 the website should be server side rendered
