@@ -62,7 +62,7 @@ const SECTIONS = {
 
 type GettingStartedSection = typeof SECTIONS.gettingStarted[number]
 type DevelopmentSection = typeof SECTIONS.development[number]
-type Section = GettingStartedSection | DevelopmentSection
+// type Section = GettingStartedSection | DevelopmentSection
 
 // Use React cache to memoize the navigation
 export const getNavigation = cache((): NavGroup[] => {

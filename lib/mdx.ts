@@ -6,7 +6,7 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import { DocMeta } from "./docs";
 import { cache } from "react";
-import type { JSX } from "react";
+// import type { JSX } from "react";
 import { components } from "@/components/mdx-components";
 
 // Import additional languages for highlighting
@@ -22,14 +22,14 @@ interface Doc {
   content: React.ReactNode;
 }
 
-interface PreProps {
+/* interface PreProps {
   children: JSX.Element & {
     props: {
       children: string;
       className?: string;
     };
   };
-}
+} */
 
 // Use React cache to memoize the results
 export const getDocBySlug = cache(async (slug: string): Promise<Doc | null> => {

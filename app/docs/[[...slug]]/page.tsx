@@ -4,21 +4,23 @@ import { notFound } from "next/navigation";
 import { DocContent } from "./doc-content";
 import { unstable_noStore as noStore } from "next/cache";
 
-interface DocPageProps {
-  params: {
+interface PageProps {
+  params: Promise<{
     slug?: string[];
-  };
+  }>;
 }
 
-export default async function DocPage({ params: rParams }: DocPageProps) {
+export default async function DocPage({ params }: PageProps) {
   // Opt out of caching in development
   if (process.env.NODE_ENV === "development") {
     noStore();
   }
 
   // For the root /docs route, use README.md
-  const params = await rParams;
-  const slug = params?.slug?.length ? params.slug.join("/") : "README";
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug?.length
+    ? resolvedParams.slug.join("/")
+    : "README";
   const doc = await getDocBySlug(slug);
 
   if (!doc) {

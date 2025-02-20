@@ -13,32 +13,39 @@ export function TableOfContents() {
 
   useEffect(() => {
     const callback = (entries: IntersectionObserverEntry[]) => {
-      headingElementsRef.current = entries.reduce((map, entry) => {
-        map[entry.target.id] = entry;
-        return map;
-      }, headingElementsRef.current);
-
-      // Get all headings that are currently visible
-      const visibleHeadings: IntersectionObserverEntry[] = [];
-      Object.keys(headingElementsRef.current).forEach((key) => {
-        const entry = headingElementsRef.current[key];
-        if (entry.isIntersecting) visibleHeadings.push(entry);
+      // Update entries in our ref
+      entries.forEach((entry) => {
+        headingElementsRef.current[entry.target.id] = entry;
       });
 
+      // Get all entries from the ref
+      const allEntries = Object.values(headingElementsRef.current);
+
+      // Find all visible headings
+      const visibleHeadings = allEntries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      // If we have visible headings, use the first one
       if (visibleHeadings.length > 0) {
-        // Get the heading that is closest to the top of the viewport
-        const topHeading = visibleHeadings.reduce((prev, curr) => {
-          return prev.boundingClientRect.top > curr.boundingClientRect.top
-            ? curr
-            : prev;
-        });
-        setActiveId(topHeading.target.id);
+        setActiveId(visibleHeadings[0].target.id);
+      } else {
+        // Find the closest heading above the viewport
+        const closestHeading = allEntries
+          .filter((entry) => entry.boundingClientRect.top < 0)
+          .sort(
+            (a, b) => b.boundingClientRect.top - a.boundingClientRect.top
+          )[0];
+
+        if (closestHeading) {
+          setActiveId(closestHeading.target.id);
+        }
       }
     };
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: "-100px 0px -70% 0px",
-      threshold: 1.0,
+      rootMargin: "-80px 0px -80% 0px",
+      threshold: [0, 1],
     });
 
     const headingElements = Array.from(
@@ -46,10 +53,17 @@ export function TableOfContents() {
         "article h1, article h2, article h3, article h4"
       )
     );
-    headingElements.forEach((element) => observer.observe(element));
 
-    return () => observer.disconnect();
-  }, []);
+    // Initialize our ref with all headings
+    headingElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => {
+      observer.disconnect();
+      headingElementsRef.current = {};
+    };
+  }, [headings]); // Add headings as dependency to reinitialize when content changes
 
   if (headings.length === 0) {
     return null;
@@ -85,12 +99,13 @@ export function TableOfContents() {
                 e.preventDefault();
                 const element = document.getElementById(heading.id);
                 if (element) {
-                  const yOffset = -100; // Adjust scroll position to account for header
+                  const yOffset = -100;
                   const y =
                     element.getBoundingClientRect().top +
                     window.scrollY +
                     yOffset;
                   window.scrollTo({ top: y, behavior: "smooth" });
+                  setActiveId(heading.id);
                 }
               }}
             >
