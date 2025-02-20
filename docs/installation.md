@@ -3,10 +3,6 @@ title: Installation
 description: Get started with SpaceJam Network by installing the required tools and setting up your development environment.
 ---
 
-# Installation
-
-Follow these steps to set up your SpaceJam Network development environment.
-
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:

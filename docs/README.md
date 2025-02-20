@@ -3,11 +3,7 @@ title: Introduction
 description: Welcome to the SpaceJam Network documentation. Learn how to build and deploy on the unlimited rust implementation of the JAM protocol.
 ---
 
-# Introduction
-
 SpaceJam Network is the unlimited rust implementation of the JAM protocol.
-
-hello, world
 
 ## What is SpaceJam?
 

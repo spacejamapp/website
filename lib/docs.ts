@@ -1,6 +1,7 @@
 import * as path from "path"
 import * as fs from "fs"
 import matter from "gray-matter"
+import { cache } from 'react'
 
 const docsDirectory = path.join(process.cwd(), "docs")
 
@@ -21,7 +22,8 @@ export interface NavGroup {
   items: NavItem[]
 }
 
-export function getDocsMeta(): DocMeta[] {
+// Use React cache to memoize the results
+export const getDocsMeta = cache((): DocMeta[] => {
   try {
     if (!fs.existsSync(docsDirectory)) {
       console.error(`Docs directory not found: ${docsDirectory}`)
@@ -51,7 +53,7 @@ export function getDocsMeta(): DocMeta[] {
     console.error("Error getting docs metadata:", error)
     return []
   }
-}
+})
 
 const SECTIONS = {
   gettingStarted: ["installation", "architecture"] as const,
@@ -62,7 +64,8 @@ type GettingStartedSection = typeof SECTIONS.gettingStarted[number]
 type DevelopmentSection = typeof SECTIONS.development[number]
 type Section = GettingStartedSection | DevelopmentSection
 
-export function getNavigation(): NavGroup[] {
+// Use React cache to memoize the navigation
+export const getNavigation = cache((): NavGroup[] => {
   try {
     const docs = getDocsMeta()
     
@@ -112,4 +115,4 @@ export function getNavigation(): NavGroup[] {
     console.error("Error generating navigation:", error)
     return []
   }
-} 
+}) 

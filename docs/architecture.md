@@ -3,10 +3,6 @@ title: Architecture
 description: Deep dive into SpaceJam Network's core architecture, design principles, and technical components.
 ---
 
-# Architecture Overview
-
-SpaceJam Network is built with a modular architecture that prioritizes scalability, security, and interoperability. This document provides a comprehensive overview of the system's design and core components.
-
 ## Core Components
 
 ### 1. Network Layer
@@ -60,23 +56,6 @@ pub trait Storage {
 ```
 
 ## System Design
-
-### Message Flow
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Node A
-    participant Node B
-    participant Consensus
-
-    Client->>Node A: Submit Transaction
-    Node A->>Node B: Propagate Transaction
-    Node B->>Consensus: Include in Block
-    Consensus->>Node A: Block Proposal
-    Consensus->>Node B: Block Proposal
-    Node A->>Client: Confirmation
-```
 
 ### State Management
 

@@ -1,7 +1,8 @@
 import { getDocBySlug } from "@/lib/mdx";
 import { getDocsMeta } from "@/lib/docs";
 import { notFound } from "next/navigation";
-import { MdxContent } from "@/components/mdx-content";
+import { DocContent } from "./doc-content";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface DocPageProps {
   params: {
@@ -9,28 +10,14 @@ interface DocPageProps {
   };
 }
 
-interface CodeBlockProps {
-  children?: string;
-  className?: string;
-}
+export default async function DocPage({ params: rParams }: DocPageProps) {
+  // Opt out of caching in development
+  if (process.env.NODE_ENV === "development") {
+    noStore();
+  }
 
-interface PreProps {
-  children: React.ReactElement<CodeBlockProps>;
-  [key: string]: any;
-}
-
-const components = {
-  pre: ({ children, ...props }: PreProps) => {
-    const code = children?.props?.children;
-    const className = children?.props?.className || "";
-
-    // Regular code block
-    return <pre {...props}>{children}</pre>;
-  },
-};
-
-export default async function DocPage({ params }: DocPageProps) {
   // For the root /docs route, use README.md
+  const params = await rParams;
   const slug = params?.slug?.length ? params.slug.join("/") : "README";
   const doc = await getDocBySlug(slug);
 
@@ -39,21 +26,7 @@ export default async function DocPage({ params }: DocPageProps) {
     notFound();
   }
 
-  return (
-    <MdxContent>
-      {doc.meta.title && (
-        <h1 className="mb-4 scroll-m-20 text-4xl font-bold tracking-tight">
-          {doc.meta.title}
-        </h1>
-      )}
-      {doc.meta.description && (
-        <p className="mb-8 text-xl text-muted-foreground">
-          {doc.meta.description}
-        </p>
-      )}
-      {doc.content}
-    </MdxContent>
-  );
+  return <DocContent doc={doc} />;
 }
 
 export async function generateStaticParams() {
@@ -70,6 +43,6 @@ export async function generateStaticParams() {
   ];
 }
 
-// Force static generation
+// Use static configuration values
 export const dynamic = "force-static";
 export const dynamicParams = false;

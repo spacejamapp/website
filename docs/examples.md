@@ -3,10 +3,6 @@ title: Examples
 description: Practical examples and code samples for building on SpaceJam Network.
 ---
 
-# Examples
-
-This guide provides practical examples for common use cases when building on SpaceJam Network.
-
 ## Basic Node Setup
 
 Create a basic SpaceJam node with custom configuration:
