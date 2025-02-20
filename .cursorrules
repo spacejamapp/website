@@ -1,0 +1,3 @@
+always use shadcn/ui for components
+always consider dark/light theme adaption on writing styles
+the website should be server side rendered

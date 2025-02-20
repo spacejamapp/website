@@ -20,6 +20,61 @@ const config = {
   	extend: {
   		fontFamily: {
   			sans: ["var(--font-inter)"],
+		},
+		height: {
+			header: "4rem",
+			page: "calc(100dvh - 4rem)"
+		},
+  		typography: {
+  			DEFAULT: {
+  				css: {
+  					maxWidth: 'none',
+  					color: 'hsl(var(--foreground))',
+  					hr: {
+  						borderColor: 'hsl(var(--border))',
+  						marginTop: '3em',
+  						marginBottom: '3em'
+  					},
+  					'h1, h2, h3': {
+  						letterSpacing: '-0.025em'
+  					},
+  					h2: {
+  						marginBottom: '1em'
+  					},
+  					h3: {
+  						marginTop: '1.5em',
+  						marginBottom: '0.5em'
+  					},
+  					'h4, h5, h6': {
+  						marginTop: '1em',
+  						marginBottom: '0.5em'
+  					},
+  					pre: {
+  						backgroundColor: 'hsl(var(--muted))',
+  						borderRadius: '0.5rem',
+  						padding: '1rem',
+  						marginTop: '1em',
+  						marginBottom: '1em'
+  					},
+  					code: {
+  						backgroundColor: 'hsl(var(--muted))',
+  						borderRadius: '0.25rem',
+  						padding: '0.2em 0.4em',
+  						fontSize: '0.9em'
+  					},
+  					'code::before': {
+  						content: '""'
+  					},
+  					'code::after': {
+  						content: '""'
+  					},
+  					'pre code': {
+  						backgroundColor: 'transparent',
+  						borderRadius: 0,
+  						padding: 0
+  					}
+  				}
+  			}
   		},
   		colors: {
   			border: "hsl(var(--border))",
@@ -77,7 +132,10 @@ const config = {
   		},
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography")
+  ],
 } satisfies Config;
 
 export default config;
