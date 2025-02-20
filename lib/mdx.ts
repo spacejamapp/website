@@ -2,6 +2,8 @@ import * as path from "path"
 import * as fs from "fs"
 import { compileMDX } from "next-mdx-remote/rsc"
 import matter from "gray-matter"
+import rehypeHighlight from "rehype-highlight"
+import remarkGfm from "remark-gfm"
 import { DocMeta } from "./docs"
 
 const rootDirectory = path.join(process.cwd(), "docs")
@@ -30,6 +32,16 @@ export async function getDocBySlug(slug: string): Promise<Doc | null> {
       source: content,
       options: {
         parseFrontmatter: true,
+        mdxOptions: {
+          format: 'mdx',
+          remarkPlugins: [remarkGfm],
+          rehypePlugins: [
+            [rehypeHighlight, { 
+              detect: true,
+              ignoreMissing: true,
+            }]
+          ],
+        },
       },
     })
 

@@ -74,19 +74,6 @@
 
 .prose pre code {
   @apply grid bg-transparent p-0;
-  counter-reset: line;
-}
-
-.prose pre code .line {
-  @apply border-l-2 border-l-transparent px-4;
-}
-
-.prose pre code .line.line--highlighted {
-  @apply border-l-primary bg-muted/50;
-}
-
-.prose pre code .word--highlighted {
-  @apply rounded-md bg-muted px-1 py-0.5;
 }
 
 .prose code:not(pre code) {

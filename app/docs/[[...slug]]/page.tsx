@@ -1,12 +1,33 @@
 import { getDocBySlug } from "@/lib/mdx";
 import { getDocsMeta } from "@/lib/docs";
 import { notFound } from "next/navigation";
+import { MdxContent } from "@/components/mdx-content";
 
 interface DocPageProps {
   params: {
     slug?: string[];
   };
 }
+
+interface CodeBlockProps {
+  children?: string;
+  className?: string;
+}
+
+interface PreProps {
+  children: React.ReactElement<CodeBlockProps>;
+  [key: string]: any;
+}
+
+const components = {
+  pre: ({ children, ...props }: PreProps) => {
+    const code = children?.props?.children;
+    const className = children?.props?.className || "";
+
+    // Regular code block
+    return <pre {...props}>{children}</pre>;
+  },
+};
 
 export default async function DocPage({ params }: DocPageProps) {
   // For the root /docs route, use README.md
@@ -19,7 +40,7 @@ export default async function DocPage({ params }: DocPageProps) {
   }
 
   return (
-    <article className="prose prose-neutral dark:prose-invert max-w-none">
+    <MdxContent>
       {doc.meta.title && (
         <h1 className="mb-4 scroll-m-20 text-4xl font-bold tracking-tight">
           {doc.meta.title}
@@ -30,8 +51,8 @@ export default async function DocPage({ params }: DocPageProps) {
           {doc.meta.description}
         </p>
       )}
-      <div className="mdx">{doc.content}</div>
-    </article>
+      {doc.content}
+    </MdxContent>
   );
 }
 
