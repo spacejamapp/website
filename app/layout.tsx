@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SpaceJam Network",
-  description: "SpaceJam Network - Web3 Infrastructure",
+  title: "SpaceJam",
+  description: "The unlimited rust implementation of the JAM protocol.",
 };
 
 export default function RootLayout({

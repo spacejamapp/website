@@ -6,9 +6,7 @@ export default function Home() {
     <main className="h-page flex flex-col items-center justify-center">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-20 text-center">
-        <h1 className="mb-6 text-6xl font-bold tracking-tighter">
-          SpaceJam Network
-        </h1>
+        <h1 className="mb-6 text-6xl font-bold tracking-tighter">SpaceJam</h1>
         <p className="mb-8 max-w-[600px] text-xl text-muted-foreground">
           The unlimited rust implementation of the JAM protocol.
         </p>
