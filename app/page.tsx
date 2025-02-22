@@ -1,27 +1,21 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-8 flex flex-col items-center justify-center">
+    <main className="h-page flex flex-col items-center justify-center">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-20 text-center">
-        <h1 className="mb-6 text-6xl font-bold tracking-tighter">
-          SpaceJam Network
-        </h1>
+        <h1 className="mb-6 text-6xl font-bold tracking-tighter">SpaceJam</h1>
         <p className="mb-8 max-w-[600px] text-xl text-muted-foreground">
           The unlimited rust implementation of the JAM protocol.
         </p>
         <div className="flex gap-4">
-          <Button size="lg">Get Started</Button>
-          <Button size="lg" variant="outline">
-            Documentation
+          <Button size="lg" asChild>
+            <Link href="/docs">Get Started</Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/docs">Documentation</Link>
           </Button>
         </div>
       </section>
