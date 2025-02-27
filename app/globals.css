@@ -175,3 +175,12 @@ code {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
