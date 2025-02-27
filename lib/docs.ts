@@ -96,7 +96,7 @@ export const getNavigation = cache((): NavGroup[] => {
             }))
         ]
       },
-      {
+      /* {
         title: "Development",
         items: [
           // Add development related pages
@@ -109,7 +109,7 @@ export const getNavigation = cache((): NavGroup[] => {
               href: `/docs/${doc.slug}`
             }))
         ]
-      }
+      } */
     ]
   } catch (error) {
     console.error("Error generating navigation:", error)

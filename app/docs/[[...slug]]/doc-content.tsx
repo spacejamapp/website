@@ -53,11 +53,11 @@ export function DocContent({ doc }: DocContentProps) {
             {doc.meta.title}
           </h1>
         )}
-        {doc.meta.description && (
+        {/*   {doc.meta.description && (
           <p className="mb-8 text-xl text-muted-foreground">
             {doc.meta.description}
           </p>
-        )}
+        )} */}
         {doc.content}
       </article>
     </div>
