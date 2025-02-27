@@ -4,9 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTelegram, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { SeparatorVertical } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -44,6 +43,13 @@ export default function Header() {
           </Link>
         </nav>
         <div className="flex items-center justify-end space-x-4">
+          <Link
+            href="https://github.com/spacejamapp"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon icon={faGithub} className="h-4 w-4" />
+          </Link>
           <ThemeToggle />
         </div>
       </div>

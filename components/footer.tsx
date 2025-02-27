@@ -14,7 +14,7 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <Link
-            href="https://t.me/spacejamnetwork"
+            href="https://t.me/spacejamapp"
             target="_blank"
             rel="noreferrer"
             className="text-muted-foreground hover:text-foreground"
@@ -23,7 +23,7 @@ export function Footer() {
             <span className="sr-only">Telegram</span>
           </Link>
           <Link
-            href="https://github.com/spacejam-network"
+            href="https://github.com/spacejamapp"
             target="_blank"
             rel="noreferrer"
             className="text-muted-foreground hover:text-foreground"

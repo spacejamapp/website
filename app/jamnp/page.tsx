@@ -243,7 +243,6 @@ export default function JamnpStreams() {
                 </TableHead>
                 <TableHead className="whitespace-nowrap">Stream ID</TableHead>
                 <TableHead className="whitespace-nowrap">Stream Name</TableHead>
-                <TableHead className="whitespace-nowrap">Type</TableHead>
                 <TableHead className="whitespace-nowrap">Status</TableHead>
                 <TableHead className="hidden sm:table-cell">
                   Description
@@ -263,20 +262,17 @@ export default function JamnpStreams() {
                       </TableCell>
                     ) : null}
                     <TableCell className="whitespace-nowrap">
-                      {stream.id}
-                    </TableCell>
-                    <TableCell className="whitespace-nowrap">
-                      {stream.name}
-                    </TableCell>
-                    <TableCell>
                       <Badge
                         variant="outline"
                         className={`${streamTypeStyles[stream.type].bg} ${
                           streamTypeStyles[stream.type].text
                         } ${streamTypeStyles[stream.type].border}`}
                       >
-                        {stream.type}
+                        {stream.type}-{stream.id}
                       </Badge>
+                    </TableCell>
+                    <TableCell className="whitespace-nowrap">
+                      {stream.name}
                     </TableCell>
                     <TableCell>
                       <Badge
