@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Github } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons";
 
 export function Footer() {
   return (
@@ -13,12 +14,21 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <Link
+            href="https://t.me/spacejamnetwork"
+            target="_blank"
+            rel="noreferrer"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <FontAwesomeIcon icon={faTelegramPlane} className="h-4 w-4" />
+            <span className="sr-only">Telegram</span>
+          </Link>
+          <Link
             href="https://github.com/spacejam-network"
             target="_blank"
             rel="noreferrer"
             className="text-muted-foreground hover:text-foreground"
           >
-            <Github className="h-5 w-5" />
+            <FontAwesomeIcon icon={faGithub} className="h-4 w-4" />
             <span className="sr-only">GitHub</span>
           </Link>
           <p className="text-sm text-muted-foreground">
