@@ -61,7 +61,7 @@ const SECTIONS = {
 } as const
 
 type GettingStartedSection = typeof SECTIONS.gettingStarted[number]
-type DevelopmentSection = typeof SECTIONS.development[number]
+// type DevelopmentSection = typeof SECTIONS.development[number]
 // type Section = GettingStartedSection | DevelopmentSection
 
 // Use React cache to memoize the navigation

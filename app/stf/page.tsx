@@ -167,7 +167,7 @@ const stfVectors: Section[] = [
 
 export default function Milestones() {
   return (
-    <main className="flex h-page flex-col p-4 sm:p-6 md:p-8">
+    <main className="flex flex-col p-4 sm:p-6 md:p-8">
       <section className="mx-auto w-full max-w-[1200px]">
         <h1 className="mb-4 text-2xl font-bold tracking-tighter sm:text-3xl">
           Status of STF Test Vectors

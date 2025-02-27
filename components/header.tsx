@@ -29,17 +29,17 @@ export default function Header() {
           >
             STF Test Vectors
           </Link>
-          {/*    <Link
-            href="/docs"
+          <Link
+            href="/jamnp"
             className={cn(
               "transition-colors hover:text-foreground/80",
-              pathname?.startsWith("/docs")
+              pathname?.startsWith("/jamnp")
                 ? "text-foreground"
                 : "text-foreground/60"
             )}
           >
-            Documentation
-          </Link> */}
+            JAMNP
+          </Link>
         </nav>
         <div className="flex items-center justify-end space-x-3">
           <Link

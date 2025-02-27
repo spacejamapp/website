@@ -11,12 +11,12 @@ export default function Home() {
           The universal implementation of the JAM protocol.
         </p>
         <div className="flex gap-4">
-          {/*   <Button size="lg" asChild>
-            <Link href="/docs">Get Started</Link>
+          <Button size="lg" asChild>
+            <Link href="/stf">STF Test Vectors</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/docs">Documentation</Link>
-          </Button> */}
+            <Link href="/jamnp">JAMNP</Link>
+          </Button>
         </div>
       </section>
 
