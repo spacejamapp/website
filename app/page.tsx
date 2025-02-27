@@ -8,14 +8,14 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center py-20 text-center">
         <h1 className="mb-6 text-6xl font-bold tracking-tighter">SpaceJam</h1>
         <p className="mb-8 max-w-[600px] text-xl text-muted-foreground">
-          The unlimited rust implementation of the JAM protocol.
+          The universal implementation of the JAM protocol.
         </p>
         <div className="flex gap-4">
           <Button size="lg" asChild>
-            <Link href="/docs">Get Started</Link>
+            <Link href="/stf">STF Test Vectors</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/docs">Documentation</Link>
+            <Link href="/jamnp">JAMNP</Link>
           </Button>
         </div>
       </section>

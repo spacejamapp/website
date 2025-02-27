@@ -61,7 +61,7 @@ const SECTIONS = {
 } as const
 
 type GettingStartedSection = typeof SECTIONS.gettingStarted[number]
-type DevelopmentSection = typeof SECTIONS.development[number]
+// type DevelopmentSection = typeof SECTIONS.development[number]
 // type Section = GettingStartedSection | DevelopmentSection
 
 // Use React cache to memoize the navigation
@@ -96,7 +96,7 @@ export const getNavigation = cache((): NavGroup[] => {
             }))
         ]
       },
-      {
+      /* {
         title: "Development",
         items: [
           // Add development related pages
@@ -109,7 +109,7 @@ export const getNavigation = cache((): NavGroup[] => {
               href: `/docs/${doc.slug}`
             }))
         ]
-      }
+      } */
     ]
   } catch (error) {
     console.error("Error generating navigation:", error)

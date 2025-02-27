@@ -19,15 +19,26 @@ export default function Header() {
         </div>
         <nav className="flex items-center space-x-6 text-sm font-medium flex-1">
           <Link
-            href="/docs"
+            href="/stf"
             className={cn(
               "transition-colors hover:text-foreground/80",
-              pathname?.startsWith("/docs")
+              pathname?.startsWith("/stf")
                 ? "text-foreground"
                 : "text-foreground/60"
             )}
           >
-            Documentation
+            STF Test Vectors
+          </Link>
+          <Link
+            href="/jamnp"
+            className={cn(
+              "transition-colors hover:text-foreground/80",
+              pathname?.startsWith("/jamnp")
+                ? "text-foreground"
+                : "text-foreground/60"
+            )}
+          >
+            JAMNP
           </Link>
         </nav>
         <div className="flex items-center justify-end space-x-3">
