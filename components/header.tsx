@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Github } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTelegram, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { SeparatorVertical } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -27,7 +29,7 @@ export default function Header() {
                 : "text-foreground/60"
             )}
           >
-            STF Test Vectors
+            STF
           </Link>
           <Link
             href="/jamnp"
@@ -41,14 +43,7 @@ export default function Header() {
             JAMNP
           </Link>
         </nav>
-        <div className="flex items-center justify-end space-x-3">
-          <Link
-            href="https://github.com/spacejam-network/specjam"
-            target="_blank"
-          >
-            <Github className="w-4 h-4" />
-          </Link>
-
+        <div className="flex items-center justify-end space-x-4">
           <ThemeToggle />
         </div>
       </div>
